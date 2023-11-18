@@ -27,5 +27,8 @@
 		"typescript": "^5.0.0",
 		"vite": "^4.4.2"
 	},
+	"dependencies": {
+		"@hanse-kim/http-client": "^1.1.4"
+	},
 	"type": "module"
 }

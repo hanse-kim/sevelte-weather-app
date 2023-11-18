@@ -162,6 +162,11 @@
   resolved "https://registry.yarnpkg.com/@fastify/busboy/-/busboy-2.1.0.tgz#0709e9f4cb252351c609c6e6d8d6779a8d25edff"
   integrity sha512-+KpH+QxZU7O4675t3mnkQKcZZg56u+K/Ct2K+N2AZYNVK8kyeo/bI18tI8aPm3tvNNRyTWfj6s5tnGNlcbQRsA==
 
+"@hanse-kim/http-client@^1.1.4":
+  version "1.1.4"
+  resolved "https://npm.pkg.github.com/download/@hanse-kim/http-client/1.1.4/7f4ed45cfc0f64c96b51762b351d00588125a542#7f4ed45cfc0f64c96b51762b351d00588125a542"
+  integrity sha512-T5K4tszC1RQsIN6xWlFbDtQJyLGx8IIQEJdsxjPF+td2OiIMhFs8/CY8muqib5CRswDZip2koSoIt2fQEn1YRQ==
+
 "@humanwhocodes/config-array@^0.11.13":
   version "0.11.13"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.13.tgz#075dc9684f40a531d9b26b0822153c1e832ee297"
