@@ -1,4 +1,4 @@
-import type { PrecipitationType } from '$lib/weather-client/types/common';
+import type { PrecipitationType } from '$lib/weather-client/types/_common';
 
 /** 초단기실황 */
 export type Nowcast = {

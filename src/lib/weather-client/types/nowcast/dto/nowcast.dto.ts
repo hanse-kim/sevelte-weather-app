@@ -1,4 +1,4 @@
-import type { ResultCode } from '$lib/weather-client/types/common';
+import type { ResultCode } from '$lib/weather-client/types/_common';
 
 export type NowcastDto = {
 	response: {

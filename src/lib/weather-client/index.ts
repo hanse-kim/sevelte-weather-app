@@ -1,5 +1,5 @@
 import { HttpClient } from '@hanse-kim/http-client';
-import type { PrecipitationType } from './types/common';
+import type { PrecipitationType } from './types/_common';
 import { NowcastFieldCategory, type NowcastDto } from './types/nowcast/dto/nowcast.dto';
 import type { GetNowcastRequestDto } from './types/nowcast/dto/request/get-nowcast.dto';
 import type { Nowcast } from './types/nowcast/entity/nowcast.entity';
