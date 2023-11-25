@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "@hanse-kim/http-client": "^1.1.4",
+    "camelcase-keys": "^9.1.2",
     "dayjs": "^1.11.10"
   },
   "type": "module"
