@@ -1,11 +1,12 @@
+import type { OneCallDto } from '$lib/types/one-call/one-call.dto';
 import type { GetOneCallRequestDto } from '$lib/types/one-call/request/get-one-call-request.dto';
 import { HttpClient } from '@hanse-kim/http-client';
 import camelcaseKeys from 'camelcase-keys';
-import type { PageServerLoad } from './$types';
-import type { OneCallDto } from '$lib/types/one-call/one-call.dto';
 import dayjs from 'dayjs';
+import type { LayoutServerLoad } from './$types';
 
-const apiKey = import.meta.env['VITE_OPEN_WEATHER_API_KEY'];
+const API_KEY = import.meta.env['VITE_OPEN_WEATHER_API_KEY'];
+
 const client = new HttpClient({
   baseUrl: 'https://api.openweathermap.org/data/3.0',
   interceptors: {
@@ -15,7 +16,7 @@ const client = new HttpClient({
   },
 });
 
-export const load: PageServerLoad = async () => {
+export const load: LayoutServerLoad = async () => {
   const lat = 37.5518911;
   const lon = 126.9917937;
 
@@ -25,10 +26,14 @@ export const load: PageServerLoad = async () => {
     exclude: ['minutely'],
     units: 'metric',
     lang: 'kr',
-    appid: apiKey,
+    appid: API_KEY,
   });
 
-  console.log(oneCall.hourly?.map((data) => dayjs.unix(data.dt).toString()));
+  const nowIndexInHourly = oneCall.hourly.findIndex((data) =>
+    dayjs.unix(data.dt).isSame(dayjs(), 'hour'),
+  );
+  oneCall.hourly = oneCall.hourly.slice(nowIndexInHourly + 1, nowIndexInHourly + 25);
+  console.log(oneCall.daily[0], oneCall.current, oneCall.hourly[0]);
 
   return { oneCall };
 };
