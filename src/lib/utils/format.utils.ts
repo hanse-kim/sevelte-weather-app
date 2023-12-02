@@ -1,4 +1,7 @@
 import dayjs from 'dayjs';
+import 'dayjs/locale/ko';
+
+dayjs.locale('ko');
 
 export class FormatUtils {
   static formatDate(utx: number, format?: string) {
