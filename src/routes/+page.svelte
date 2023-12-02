@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { DateUtils } from '$lib/utils/date.utils';
+  import { FormatUtils } from '$lib/utils/format.utils';
   import type { PageData } from './$types';
 
   export let data: PageData;
@@ -9,13 +9,17 @@
 </script>
 
 <section class="current">
-  <h1>{current.temp}°C</h1>
+  <h1>{FormatUtils.formatTemperature(current.temp)}°</h1>
   <p>
     {current.weather[0].description}
   </p>
-  <p>{today.temp.max}°C / {today.temp.min}°C</p>
   <p>
-    체감온도: {current.feelsLike}°C
+    {FormatUtils.formatTemperature(today.temp.max)}° / {FormatUtils.formatTemperature(
+      today.temp.min,
+    )}°
+  </p>
+  <p>
+    체감온도: {current.feelsLike}°
   </p>
 </section>
 
@@ -23,13 +27,13 @@
   <div>
     {#each hourly as hour, index (index)}
       <div>
-        {DateUtils.format(hour.dt, 'A hh시')}
+        {FormatUtils.formatDate(hour.dt, 'A hh시')}
         <br />
-        {hour.temp}°C
+        {FormatUtils.formatTemperature(hour.temp)}°
         <br />
         {hour.weather[0].description}
         <br />
-        {Math.round(hour.pop * 100)}%
+        {FormatUtils.formatPop(hour.pop)}%
       </div>
     {/each}
   </div>
