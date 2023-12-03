@@ -1,5 +1,6 @@
 <script lang="ts">
   import { FormatUtils } from '$lib/utils/format.utils';
+  import dayjs from 'dayjs';
   import type { PageData } from './$types';
 
   export let data: PageData;
@@ -39,7 +40,23 @@
   </div>
 </section>
 
+<section class="daily">
+  {#each daily as day, index (index)}
+    <div>
+      {dayjs.unix(day.dt).isSame(dayjs(), 'date') ? '오늘' : FormatUtils.formatDate(day.dt, 'ddd')} /
+      {FormatUtils.formatPop(day.pop)}% / {day.weather[0].description} / {FormatUtils.formatTemperature(
+        day.temp.max,
+      )}° / {FormatUtils.formatTemperature(day.temp.min)}°
+    </div>
+  {/each}
+</section>
+
 <style>
+  section {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
   .hourly div {
     display: flex;
     max-width: 720px;

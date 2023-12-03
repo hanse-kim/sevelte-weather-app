@@ -12,7 +12,7 @@ export class FormatUtils {
     return temp.toFixed(1);
   }
 
-  static formatPop(humidity: number) {
-    return (humidity * 100).toFixed(1);
+  static formatPop(pop: number) {
+    return Math.round(pop * 10) * 10;
   }
 }

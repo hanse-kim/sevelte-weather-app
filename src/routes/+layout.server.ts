@@ -34,6 +34,7 @@ export const load: LayoutServerLoad = async () => {
   );
   oneCall.hourly = oneCall.hourly.slice(nowIndexInHourly + 1, nowIndexInHourly + 25);
   console.log(oneCall.daily[0], oneCall.current, oneCall.hourly[0]);
+  console.log(oneCall.daily.map((day) => dayjs.unix(day.dt).toString()));
 
   return { oneCall };
 };

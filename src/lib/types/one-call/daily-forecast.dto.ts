@@ -34,6 +34,8 @@ export type DailyForecastDto = BaseForecastDto & {
   };
   /** 강수량(mm) */
   rain: number;
+  /** 강수확률(0~1) */
+  pop: number;
   /** 자외선지수 */
   uvi: number;
 };
